@@ -168,12 +168,6 @@ layers {
   param: "feat_b"
 }
 
-layers {
-  name: "soft"
-  type: SOFTMAX
-  bottom: "feat"
-  top: "feat"
-}
 
 
 layers {
@@ -306,12 +300,7 @@ layers {
   param: "feat_b"
 }
 
-layers {
-  name: "soft_p"
-  type: SOFTMAX
-  bottom: "feat_p"
-  top: "feat_p"
-}
+
 
 
 layers {
