@@ -148,6 +148,13 @@ layers {
 }
 
 layers {
+  name: "relu2"
+  type: RELU
+  bottom: "ip2"
+  top: "ip2"
+}
+
+layers {
   name: "feat"
   type: INNER_PRODUCT
   bottom: "ip2"
@@ -284,6 +291,13 @@ layers {
   }
   param: "ip2_w"
   param: "ip2_b"
+}
+
+layers {
+  name: "relu2_p"
+  type: RELU
+  bottom: "ip2_p"
+  top: "ip2_p"
 }
 
 layers {
