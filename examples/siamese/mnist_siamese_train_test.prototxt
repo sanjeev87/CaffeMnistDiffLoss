@@ -168,6 +168,14 @@ layers {
 }
 
 
+layers {
+  name: "soft"
+  type: SOFTMAX
+  bottom: "feat"
+  top: "feat"
+}
+
+
 
 layers {
   name: "conv1_p"
@@ -299,12 +307,19 @@ layers {
 }
 
 
+layers {
+  name: "soft"
+  type: SOFTMAX
+  bottom: "feat_p"
+  top: "feat_p"
+}
+
 
 layers {
     name: "loss"
     type: CONTRASTIVE_LOSS
     contrastive_loss_param {
-        margin: 1.0
+        margin: 2.0
     }
     bottom: "feat"
     bottom: "feat_p"
