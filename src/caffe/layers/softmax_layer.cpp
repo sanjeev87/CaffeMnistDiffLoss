@@ -38,8 +38,12 @@ void SoftmaxLayer<Dtype>::Forward_cpu(const vector<Blob<Dtype>*>& bottom,
     caffe_copy(spatial_dim, bottom_data + i * dim, scale_data);
     for (int j = 0; j < channels; j++) {
       for (int k = 0; k < spatial_dim; k++) {
+
         scale_data[k] = std::max(scale_data[k],
             bottom_data[i * dim + j * spatial_dim + k]);
+
+        printf("SoftmaxLayer : max value at this layer is : %f \n", (float) scale_data[k] );
+
       }
     }
     // subtraction
