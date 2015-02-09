@@ -123,7 +123,7 @@ layers {
 }
 layers {
   name: "relu1"
-  type: RELU
+  type: SOFTMAX
   bottom: "ip1"
   top: "ip1"
 }
@@ -262,7 +262,7 @@ layers {
 }
 layers {
   name: "relu1_p"
-  type: RELU
+  type: SOFTMAX
   bottom: "ip1_p"
   top: "ip1_p"
 }
