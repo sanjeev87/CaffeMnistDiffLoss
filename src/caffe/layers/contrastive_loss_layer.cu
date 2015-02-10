@@ -130,14 +130,15 @@ void ContrastiveLossLayer<Dtype>::Forward_gpu(
 
     printf("CLL_CU: values of L1 norm are , %f \n", (float) dist_sq_.mutable_cpu_data()[i]);
     printf("CLL_CU: label : %d \n", static_cast<int>(bottom[2]->cpu_data()[i]));
+    printf("CLL_CU: the value of margin is : %f \n", (float) margin);
     if (static_cast<int>(bottom[2]->cpu_data()[i])) {  // similar pairs
 
       loss += Dtype(2) / margin * dist_sq_.cpu_data()[i] * dist_sq_.cpu_data()[i];
         printf(" CLL_CU: loss computed : %f\n", (float) loss);
     } else {  // dissimilar pairs
-       printf("CLL_CU : the exponent of 1 is : %f \n",exp(Dtype(1)));
-        printf("CLL_CU: value of L1 norm 2nd time is , %f \n", (float) dist_sq_.cpu_data()[i]);
-        printf("CLL_CU: the value of margin is : %f \n", (float) margin);
+       //printf("CLL_CU : the exponent of 1 is : %f \n",exp(Dtype(1)));
+        //printf("CLL_CU: value of L1 norm 2nd time is , %f \n", (float) dist_sq_.cpu_data()[i]);
+        
       loss += Dtype(2) * margin * exp(-Dtype(2.77) / margin * dist_sq_.cpu_data()[i]);
         printf(" CLL_CU: loss computed : %f\n", (float) loss);
     }
