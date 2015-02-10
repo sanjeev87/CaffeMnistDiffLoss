@@ -169,6 +169,13 @@ layers {
 }
 
 
+layers {
+  name: "soft"
+  type: SOFTMAX
+  bottom: "feat"
+  top: "feat"
+}
+
 
 layers {
   name: "conv1_p"
@@ -298,6 +305,13 @@ layers {
   }
   param: "feat_w"
   param: "feat_b"
+}
+
+layers {
+  name: "soft_p"
+  type: SOFTMAX
+  bottom: "feat_p"
+  top: "feat_p"
 }
 
 
